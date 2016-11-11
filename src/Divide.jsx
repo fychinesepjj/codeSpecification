@@ -1,7 +1,9 @@
 import React from 'react';
 
-function Option() {
+function Divide() {
   return (
     <div className="app" />
   );
 }
+
+exports.default = Divide;
