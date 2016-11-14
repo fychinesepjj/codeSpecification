@@ -1,0 +1,14 @@
+.class1, .class2 {
+  border: 1px solid #ddd;
+  font-size: 12px;
+  display: block;
+}
+
+.class2 {
+  font-size: 120%;
+}
+
+div {
+  float: left;
+  margin-right: 20px;
+}

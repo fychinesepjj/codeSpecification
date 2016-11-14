@@ -4,7 +4,8 @@
   "description": "code specification study",
   "main": "",
   "scripts": {
-    "build:es6": "babel src -d assets"
+    "build:es6": "babel src/jsx -d build",
+    "watch:sass": "sass --check --trace --sourcemap=none -t expanded -I src/sass/include --watch src/sass/file:src/media/css"
   },
   "keywords": [
     "css specification",
