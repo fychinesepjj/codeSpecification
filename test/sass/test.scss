@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* 
+* Sass 常用语法分析
+* http://sass.bootcss.com/docs/sass-reference/
+*/
+
+// 默认引用_blue.theme.scss文件，_ 开头文件不会被编译成css，_blue.theme.scss与blue.theme.scss不能同时存在
+@import 'blue.theme.scss';
+.class1 {
+  border: 1px solid #ddd;
+  font-size: 12px;
+  display: block;
+}
+
+.class2 {
+  // 继承
+  @extend .class1;
+  font-size: 120%;
+}
+
+@mixin left($value: 10px) {
+  float: left;
+  margin-right: $value;
+}
+
+div {
+  // 扩展
+  @include left(20px);
+}
+
+@mixin firefox-message($selector) {
+  body.firefox #{$selector}:before {
+    content: "Hi, Firefox users!";
+  }
+}
+
+@include firefox-message(".header");
+
+a {
+  // a:hover
+  &:hover {
+    color:red;
+  }
+  // .parent a
+  .parent & {
+    color: blue;
+  }
+}

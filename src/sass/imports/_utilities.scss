@@ -1,0 +1,201 @@
+/**
+* ============================================================
+* Function
+* start with: .f-*
+* ============================================================
+*/
+
+// Border
+.f-border-none        { border: 0 !important; }
+.f-border-top-none    { border-top: 0 !important; }
+.f-border-right-none  { border-right: 0 !important; }
+.f-border-bottom-none { border-bottom: 0 !important; }
+.f-border-left-none   { border-left: 0 !important; }
+
+// Border-radius
+.f-rounded {
+  @include border-radius($border-radius);
+}
+.f-rounded-top {
+  @include border-top-radius($border-radius);
+}
+.f-rounded-right {
+  @include border-right-radius($border-radius);
+}
+.f-rounded-bottom {
+  @include border-bottom-radius($border-radius);
+}
+.f-rounded-left {
+  @include border-left-radius($border-radius);
+}
+
+.f-rounded-circle {
+  border-radius: 50%;
+}
+
+.f-rounded-none {
+  border-radius: 0;
+}
+
+.f-clearfix {
+  @include clearfix();
+}
+
+.f-full-width {width: 100% !important;}
+.f-full-height {height: 100% !important;}
+
+// Margin and Padding
+.f-mg-auto {
+  margin-right: auto !important;
+  margin-left:  auto !important;
+}
+
+// Alignment
+.f-align-baseline    { vertical-align: baseline !important; } // Browser default
+.f-align-top         { vertical-align: top !important; }
+.f-align-middle      { vertical-align: middle !important; }
+.f-align-bottom      { vertical-align: bottom !important; }
+.f-align-text-bottom { vertical-align: text-bottom !important; }
+.f-align-text-top    { vertical-align: text-top !important; }
+
+.f-text-justify  { text-align: justify !important; }
+.f-text-nowrap   { white-space: nowrap !important; }
+.f-text-truncate { @include text-truncate; }
+.f-text-left   { text-align: left; }
+.f-text-right  { text-align: right; }
+.f-text-middle { text-align: middle; }
+
+// Contextual colors
+.f-text-white {
+  color: #fff !important;
+}
+
+// Transformation
+.f-text-lower  { text-transform: lowercase !important; }
+.f-text-upper  { text-transform: uppercase !important; }
+.f-text-cap    { text-transform: capitalize !important; }
+
+// Weight and italics
+.f-font-normal { font-weight: $font-weight-normal; }
+.f-font-bold   { font-weight: $font-weight-bold; }
+.f-font-italic { font-style: italic; }
+
+// Misc
+.f-text-hide {
+  @include text-hide();
+}
+
+// Visibility utilities
+.f-invisible {
+  @include invisible();
+}
+
+.f-hidden-print {
+  @media print {
+    display: none !important;
+  }
+}
+
+.f-float-left {
+  @include float-left();
+}
+
+.f-float-right {
+  @include float-right();
+}
+
+.f-float-none {
+  @include float-none();
+}
+
+.f-overflow-hidden {
+  overflow: hidden !important;
+}
+
+.f-overflow-scroll {
+  overflow: scroll !important;
+}
+
+.f-inline {
+  display: inline;
+}
+
+.f-inline-block {
+  display: inline-block;
+}
+
+.f-block {
+  display: block;
+}
+
+.f-relative {
+  position: relative;
+}
+
+.f-absolute {
+  position: absolute;
+}
+
+.f-fixed {
+  position: fixed;
+}
+
+.f-zoom {
+  @include zoom();
+}
+
+.f-underline {
+  text-decoration: underline;
+}
+
+.f-decoration-none {
+  text-decoration: none;
+}
+
+.f-decoration-overline {
+  text-decoration: overline;
+}
+
+.f-cursor {
+  cursor: default;
+}
+
+.f-cursor-pointer {
+  cursor: pointer;
+}
+
+.f-user-select-none {
+  @include user-select(none);
+}
+
+
+/**
+* ============================================================
+* Status
+* start with: .z-*
+* ============================================================
+*/
+
+.z-selected {}
+.z-current {}
+.z-show {
+  display: block !important;
+}
+.z-hidden {
+  display: none !important;
+}
+.z-error {}
+.z-disabled {}
+.z-open {}
+.z-close {}
+
+
+/**
+* ============================================================
+* Skin
+* start with: .s-*
+* ============================================================
+*/
+.s-font-red {color: red;}
+.s-bg-red {background: red;}
+.s-border-red {border-color: red;}
