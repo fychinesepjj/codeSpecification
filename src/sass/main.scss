@@ -1,7 +1,8 @@
 @charset "utf-8";
 
+@import "imports/tools";
 // 自定义desktop variables，用于覆盖imports/variables 变量配置
-@import "imports/_desktop_variables";
+@import "imports/_custom_variables";
 @import "imports/variables";
 @import "imports/mixins";
 

@@ -23,6 +23,14 @@ $enable-grid-classes:       true !default;
 $enable-hover-media-query:  false !default;
 
 
+// Pixel value used to responsively scale all typography. Applied to the `<html>` element.
+// 100px作为浏览器相对值
+$font-size-root: 100px !default;
+$font-size-base: px2rem(16px) !default;
+$font-size-lg:   px2rem(20px) !default;
+$font-size-sm:   px2rem(14px) !default;
+$font-size-xs:   px2rem(12px) !default;
+
 // Prefixs
 $layout-prefix: '.g-'   !default;
 $module-prefix: '.m-'   !default;
@@ -65,7 +73,7 @@ $line-height-base:       1.5 !default;
 $line-height-lg:         (4 / 3) !default;
 $line-height-sm:         1.5 !default;
 
-$spacer:   1rem !default;
+$spacer:   px2rem(16px) !default;
 $spacer-x: $spacer !default;
 $spacer-y: $spacer !default;
 $spacers: (
@@ -99,9 +107,9 @@ $spacers: (
   )
 ) !default;
 $border-width:     1px !default;
-$border-radius:          .25rem !default;
-$border-radius-lg:       .3rem !default;
-$border-radius-sm:       .2rem !default;
+$border-radius:          px2rem(4px) !default;
+$border-radius-lg:       px2rem(5px) !default;
+$border-radius-sm:       px2rem(3px) !default;
 
 
 // Body
@@ -126,13 +134,6 @@ $font-family-serif:      Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 $font-family-base:       $font-family-sans-serif !default;
 
-// Pixel value used to responsively scale all typography. Applied to the `<html>` element.
-$font-size-root: 16px !default;
-$font-size-base: 1rem !default;
-$font-size-lg:   1.25rem !default;
-$font-size-sm:   .875rem !default;
-$font-size-xs:   .75rem !default;
-
 $font-weight-normal: normal !default;
 $font-weight-bold: bold !default;
 $font-weight-base: $font-weight-normal !default;
@@ -143,21 +144,21 @@ $headings-font-weight:   500 !default;
 $headings-line-height:   1.1 !default;
 $headings-color:         inherit !default;
 
-$font-size-h1: 2.5rem !default;
-$font-size-h2: 2rem !default;
-$font-size-h3: 1.75rem !default;
-$font-size-h4: 1.5rem !default;
-$font-size-h5: 1.25rem !default;
-$font-size-h6: 1rem !default;
+$font-size-h1: px2rem(40px) !default;
+$font-size-h2: px2rem(32px) !default;
+$font-size-h3: px2rem(28px) !default;
+$font-size-h4: px2rem(24px) !default;
+$font-size-h5: px2rem(20px) !default;
+$font-size-h6: px2rem(16px) !default;
 
 $blockquote-font-size:    ($font-size-base * 1.25) !default;
 $blockquote-border-color: $gray-lighter !default;
-$blockquote-border-width: .25rem !default;
+$blockquote-border-width: px2rem(4px) !default;
 
 $hr-border-color: rgba(0,0,0,.1) !default;
 $hr-border-width: $border-width !default;
 
-$list-inline-padding: 5px !default;
+$list-inline-padding: px2rem(5px) !default;
 $text-muted: $gray-light !default;
 $dt-font-weight: $font-weight-bold !default;
 $small-font-size: 80% !default;
@@ -166,8 +167,8 @@ $cursor-disabled: not-allowed !default;
 
 // Code
 $code-font-size:              90% !default;
-$code-padding-x:              .4rem !default;
-$code-padding-y:              .2rem !default;
+$code-padding-x:              px2rem(6.4px) !default;
+$code-padding-y:              px2rem(3.2px) !default;
 $code-color:                  #bd4147 !default;
 $code-bg:                     $gray-lightest !default;
 
@@ -178,8 +179,8 @@ $pre-scrollable-max-height:   340px !default;
 
 
 // Buttons
-$btn-padding-x:                  1rem !default;
-$btn-padding-y:                  .5rem !default;
+$btn-padding-x:                  px2rem(16px) !default;
+$btn-padding-y:                  px2rem(8px) !default;
 $btn-line-height:                1.25 !default;
 $btn-font-weight:                $font-weight-normal !default;
 $btn-box-shadow:                 inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075) !default;
@@ -199,14 +200,14 @@ $btn-secondary-border:           $btn-secondary-bg !default;
 
 $btn-link-disabled-color:        $gray-light !default;
 
-$btn-padding-x-sm:               .5rem !default;
-$btn-padding-y-sm:               .25rem !default;
+$btn-padding-x-sm:               px2rem(8px) !default;
+$btn-padding-y-sm:               px2rem(4px) !default;
 
-$btn-padding-x-lg:               1.5rem !default;
-$btn-padding-y-lg:               .75rem !default;
+$btn-padding-x-lg:               px2rem(24px) !default;
+$btn-padding-y-lg:               px2rem(12px) !default;
 
-$btn-block-spacing-y:            .5rem !default;
-$btn-toolbar-margin:             .5rem !default;
+$btn-block-spacing-y:            px2rem(8px) !default;
+$btn-toolbar-margin:             px2rem(8px) !default;
 
 // Allows for customizing button radius independently from global border radius
 $btn-border-radius:              $border-radius !default;
@@ -215,9 +216,9 @@ $btn-border-radius-sm:           $border-radius-sm !default;
 
 
 // Breadcrumbs
-$breadcrumb-padding-y:          .75rem !default;
+$breadcrumb-padding-y:          px2rem(12px) !default;
 $breadcrumb-padding-x:          0      !default;
-$breadcrumb-item-padding:       .5rem  !default;
+$breadcrumb-item-padding:       px2rem(8px)  !default;
 
 $breadcrumb-bg:                 $body-bg    !default;
 $breadcrumb-divider-color:      $gray-light !default;
@@ -226,12 +227,13 @@ $breadcrumb-divider:            "/" !default;
 
 
 // Pagination
-$pagination-padding-x:                .75rem !default;
-$pagination-padding-y:                .5rem !default;
-$pagination-padding-x-sm:             .5rem !default;
-$pagination-padding-y-sm:             .25rem !default;
-$pagination-padding-x-lg:             1.5rem !default;
-$pagination-padding-y-lg:             .75rem !default;
+// Pagination
+$pagination-padding-x:                px2rem(12px) !default;
+$pagination-padding-y:                px2rem(8px) !default;
+$pagination-padding-x-sm:             px2rem(8px) !default;
+$pagination-padding-y-sm:             px2rem(4px) !default;
+$pagination-padding-x-lg:             px2rem(24px) !default;
+$pagination-padding-y-lg:             px2rem(12px) !default;
 $pagination-line-height:              1.25 !default;
 
 $pagination-color:                     $link-color !default;
@@ -253,8 +255,8 @@ $pagination-disabled-border:           #ddd !default;
 
 
 // Form Elements
-$input-padding-x:                .75rem !default;
-$input-padding-y:                .5rem !default;
+$input-padding-x:                px2rem(12px) !default;
+$input-padding-y:                px2rem(8px) !default;
 $input-line-height:              1.25 !default;
 
 $input-bg:                       #fff !default;
@@ -276,11 +278,11 @@ $input-color-focus:              $input-color !default;
 
 $input-color-placeholder:        #999 !default;
 
-$input-padding-x-sm:             .5rem !default;
-$input-padding-y-sm:             .25rem !default;
+$input-padding-x-sm:             px2rem(8px) !default;
+$input-padding-y-sm:             px2rem(4px) !default;
 
-$input-padding-x-lg:             1.5rem !default;
-$input-padding-y-lg:             .75rem !default;
+$input-padding-x-lg:             px2rem(24px) !default;
+$input-padding-y-lg:             px2rem(12px) !default;
 
 $input-height:                   (($font-size-base * $input-line-height) + ($input-padding-y * 2)) !default;
 $input-height-lg:                (($font-size-lg * $line-height-lg) + ($input-padding-y-lg * 2)) !default;
@@ -300,8 +302,8 @@ $form-icon-warning: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmln
 
 
 // Tables
-$table-cell-padding:            .75rem !default;
-$table-sm-cell-padding:         .3rem !default;
+$table-cell-padding:            px2rem(12px) !default;
+$table-sm-cell-padding:         px2rem(4.8px) !default;
 
 $table-bg:                      transparent !default;
 $table-bg-inverse:              $gray-dark !default;
