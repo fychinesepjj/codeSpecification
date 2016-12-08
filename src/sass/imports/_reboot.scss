@@ -3,7 +3,6 @@
 * Custom resets to common elements
 * ============================================================
 */
-// scss-lint:disable QualifyingElement, DuplicateProperty
 
 // Reboot
 //
@@ -321,6 +320,7 @@ textarea {
   // Normalize includes `font: inherit;`, so `font-family`. `font-size`, etc are
   // properly inherited. However, `line-height` isn't inherited there.
   line-height: inherit;
+  font-family: $font-family-sans-serif;
 }
 
 input[type="radio"],

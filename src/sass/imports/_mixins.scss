@@ -33,6 +33,11 @@
   }
 }
 
+
+@function px2rem($px, $base: $font-size-root) {
+  @return $px / $base * 1rem;
+}
+
 // Breakpoint viewport sizes and media queries.
 //
 // Breakpoints are defined as a map of (name: minimum width), order from small to large:
@@ -136,6 +141,12 @@
   box-shadow: $shadows;
 }
 
+@mixin transition($transition...) {
+  @if $enable-transitions {
+    transition: $transition;
+  }
+}
+
 
 // Button variants
 //
@@ -157,15 +168,15 @@
   }
 
   &:focus,
-  &.focus {
+  &#{$status-prefix}focus {
     color: $color;
     background-color: $active-background;
         border-color: $active-border;
   }
 
   &:active,
-  &.active,
-  .open > &.dropdown-toggle {
+  &#{$status-prefix}active,
+  #{$status-prefix}open > &#{$unit-prefix}dropdown-toggle {
     color: $color;
     background-color: $active-background;
         border-color: $active-border;
@@ -175,23 +186,70 @@
 
     &:hover,
     &:focus,
-    &.focus {
+    &#{$status-prefix}focus {
       color: $color;
       background-color: darken($background, 17%);
           border-color: darken($border, 25%);
     }
   }
 
-  &.disabled,
+  &#{$status-prefix}disabled,
   &:disabled {
     &:focus,
-    &.focus {
+    &#{$status-prefix}focus {
       background-color: $background;
           border-color: $border;
     }
     @include hover {
       background-color: $background;
           border-color: $border;
+    }
+  }
+}
+
+@mixin button-outline-variant($color, $color-hover: #fff) {
+  color: $color;
+  background-image: none;
+  background-color: transparent;
+  border-color: $color;
+
+  @include hover {
+    color: $color-hover;
+    background-color: $color;
+        border-color: $color;
+  }
+
+  &:focus,
+  &#{$status-prefix}focus {
+    color: $color-hover;
+    background-color: $color;
+        border-color: $color;
+  }
+
+  &:active,
+  &#{$status-prefix}active,
+  #{$status-prefix}open > &#{$unit-prefix}dropdown-toggle {
+    color: $color-hover;
+    background-color: $color;
+        border-color: $color;
+
+    &:hover,
+    &:focus,
+    &#{$status-prefix}focus {
+      color: $color-hover;
+      background-color: darken($color, 17%);
+          border-color: darken($color, 25%);
+    }
+  }
+
+  &#{$status-prefix}disabled,
+  &:disabled {
+    &:focus,
+    &#{$status-prefix}focus {
+      border-color: lighten($color, 20%);
+    }
+    @include hover {
+      border-color: lighten($color, 20%);
     }
   }
 }
@@ -224,11 +282,45 @@
 }
 
 
-// Form control sizing
-//
-// Relative text size, padding, and border-radii changes for form controls. For
-// horizontal sizing, wrap controls in the predefined grid classes. `<select>`
-// element gets special love because it's special, and that's a fact!
+// Form validation states
+@mixin form-control-validation($color) {
+  // Color the label and help text
+  .form-control-feedback,
+  .form-control-label,
+  .col-form-label,
+  .form-check-label,
+  .custom-control {
+    color: $color;
+  }
+
+  // Set the border and box shadow on specific inputs to match
+  .form-control {
+    border-color: $color;
+
+    &:focus {
+      @include box-shadow($input-box-shadow, 0 0 6px lighten($color, 20%));
+    }
+  }
+
+  // Set validation states also for addons
+  .input-group-addon {
+    color: $color;
+    border-color: $color;
+    background-color: lighten($color, 40%);
+  }
+}
+
+// Form control focus state
+@mixin form-control-focus() {
+  &:focus {
+    color: $input-color-focus;
+    background-color: $input-bg-focus;
+    border-color: $input-border-focus;
+    outline: none;
+    @include box-shadow($input-box-shadow-focus);
+  }
+}
+
 @mixin input-size($parent, $input-height, $padding-y, $padding-x, $font-size, $line-height, $border-radius) {
   #{$parent} {
     height: $input-height;
@@ -256,6 +348,9 @@
 // any value of `$grid-columns`.
 
 @mixin make-grid-columns($columns: $grid-columns, $gutters: $grid-gutter-widths, $breakpoints: $grid-breakpoints) {
+  $prefix: $layout-prefix;
+  $colPrefix: '#{$prefix}col';
+
   // Common properties for all breakpoints
   %grid-column {
     position: relative;
@@ -274,39 +369,39 @@
 
     // Allow columns to stretch full width below their breakpoints
     @for $i from 1 through $columns {
-      .col#{$infix}-#{$i} {
+      #{$colPrefix}#{$infix}-#{$i} {
         @extend %grid-column;
       }
     }
     @if $enable-flex {
-      .col#{$infix} {
+      #{$colPrefix}#{$infix} {
         @extend %grid-column;
       }
     }
 
     @include media-breakpoint-up($breakpoint, $breakpoints) {
-      // Provide basic `.col-{bp}` classes for equal-width flexbox columns
+      // Provide basic `.g-col-{bp}` classes for equal-width flexbox columns
       @if $enable-flex {
-        .col#{$infix} {
+        #{$colPrefix}#{$infix} {
           flex-basis: 0;
           flex-grow: 1;
           max-width: 100%;
         }
-        .col#{$infix}-auto {
+        #{$colPrefix}#{$infix}-auto {
           flex: 0 0 auto;
           width: auto;
         }
       }
 
       @for $i from 1 through $columns {
-        .col#{$infix}-#{$i} {
+        #{$colPrefix}#{$infix}-#{$i} {
           @include make-col($i, $columns);
         }
       }
 
       @each $modifier in (pull, push) {
         @for $i from 0 through $columns {
-          .#{$modifier}#{$infix}-#{$i} {
+          #{$prefix}#{$modifier}#{$infix}-#{$i} {
             @include make-col-modifier($modifier, $i, $columns)
           }
         }
@@ -315,7 +410,7 @@
       // `$columns - 1` because offsetting by the width of an entire row isn't possible
       @for $i from 0 through ($columns - 1) {
         @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-xs-0
-          .offset#{$infix}-#{$i} {
+          #{$prefix}offset#{$infix}-#{$i} {
             @include make-col-modifier(offset, $i, $columns)
           }
         }
@@ -378,26 +473,6 @@
       $gutter: map-get($gutters, $breakpoint);
       margin-right: ($gutter / -2);
       margin-left:  ($gutter / -2);
-    }
-  }
-}
-
-@mixin make-col-ready($gutters: $grid-gutter-widths) {
-  position: relative;
-  min-height: 1px; // Prevent collapsing
-
-  // Prevent columns from becoming too narrow when at smaller grid tiers by
-  // always setting `width: 100%;`. This works because we use `flex` values
-  // later on to override this initial width.
-  @if $enable-flex {
-    width: 100%;
-  }
-
-  @each $breakpoint in map-keys($gutters) {
-    @include media-breakpoint-up($breakpoint) {
-      $gutter: map-get($gutters, $breakpoint);
-      padding-right: ($gutter / 2);
-      padding-left:  ($gutter / 2);
     }
   }
 }

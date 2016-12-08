@@ -1,8 +1,8 @@
 @charset "utf-8";
 
-@import "custom";
-@import "import/variables";
-@import "import/mixins";
+@import "imports/custom";
+@import "imports/variables";
+@import "imports/mixins";
 
 @import "normalize";
 @import "reboot";
@@ -16,4 +16,4 @@
 @import "alert";
 @import "tooltip";
 
-@import "import/utilities";
+@import "imports/utilities";

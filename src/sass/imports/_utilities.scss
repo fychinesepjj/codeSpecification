@@ -6,165 +6,192 @@
 */
 
 // Border
-.f-border-none        { border: 0 !important; }
-.f-border-top-none    { border-top: 0 !important; }
-.f-border-right-none  { border-right: 0 !important; }
-.f-border-bottom-none { border-bottom: 0 !important; }
-.f-border-left-none   { border-left: 0 !important; }
+#{$function-prefix}border-none        { border: 0 !important; }
+#{$function-prefix}border-top-none    { border-top: 0 !important; }
+#{$function-prefix}border-right-none  { border-right: 0 !important; }
+#{$function-prefix}border-bottom-none { border-bottom: 0 !important; }
+#{$function-prefix}border-left-none   { border-left: 0 !important; }
 
 // Border-radius
-.f-rounded {
+#{$function-prefix}rounded {
   @include border-radius($border-radius);
 }
-.f-rounded-top {
+#{$function-prefix}rounded-top {
   @include border-top-radius($border-radius);
 }
-.f-rounded-right {
+#{$function-prefix}rounded-right {
   @include border-right-radius($border-radius);
 }
-.f-rounded-bottom {
+#{$function-prefix}rounded-bottom {
   @include border-bottom-radius($border-radius);
 }
-.f-rounded-left {
+#{$function-prefix}rounded-left {
   @include border-left-radius($border-radius);
 }
 
-.f-rounded-circle {
+#{$function-prefix}rounded-circle {
   border-radius: 50%;
 }
 
-.f-rounded-none {
+#{$function-prefix}rounded-none {
   border-radius: 0;
 }
 
-.f-clearfix {
+#{$function-prefix}clearfix {
   @include clearfix();
 }
 
-.f-full-width {width: 100% !important;}
-.f-full-height {height: 100% !important;}
+#{$function-prefix}full-width {width: 100% !important;}
+#{$function-prefix}full-height {height: 100% !important;}
 
 // Margin and Padding
-.f-mg-auto {
+#{$function-prefix}mx-auto {
   margin-right: auto !important;
   margin-left:  auto !important;
 }
 
-// Alignment
-.f-align-baseline    { vertical-align: baseline !important; } // Browser default
-.f-align-top         { vertical-align: top !important; }
-.f-align-middle      { vertical-align: middle !important; }
-.f-align-bottom      { vertical-align: bottom !important; }
-.f-align-text-bottom { vertical-align: text-bottom !important; }
-.f-align-text-top    { vertical-align: text-top !important; }
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @each $prop, $abbrev in (margin: m, padding: p) {
+    @each $size, $lengths in $spacers {
+      $length-x:   map-get($lengths, x);
+      $length-y:   map-get($lengths, y);
 
-.f-text-justify  { text-align: justify !important; }
-.f-text-nowrap   { white-space: nowrap !important; }
-.f-text-truncate { @include text-truncate; }
-.f-text-left   { text-align: left; }
-.f-text-right  { text-align: right; }
-.f-text-middle { text-align: middle; }
+      @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        #{$function-prefix}#{$abbrev}#{$infix}-#{$size}  { #{$prop}:        $length-y $length-x !important; }
+        #{$function-prefix}#{$abbrev}t#{$infix}-#{$size} { #{$prop}-top:    $length-y !important; }
+        #{$function-prefix}#{$abbrev}r#{$infix}-#{$size} { #{$prop}-right:  $length-x !important; }
+        #{$function-prefix}#{$abbrev}b#{$infix}-#{$size} { #{$prop}-bottom: $length-y !important; }
+        #{$function-prefix}#{$abbrev}l#{$infix}-#{$size} { #{$prop}-left:   $length-x !important; }
+        #{$function-prefix}#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-right:  $length-x !important;
+          #{$prop}-left:   $length-x !important;
+        }
+        #{$function-prefix}#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-top:    $length-y !important;
+          #{$prop}-bottom: $length-y !important;
+        }
+      }
+    }
+  }
+}
+
+// Alignment
+#{$function-prefix}align-baseline    { vertical-align: baseline !important; } // Browser default
+#{$function-prefix}align-top         { vertical-align: top !important; }
+#{$function-prefix}align-middle      { vertical-align: middle !important; }
+#{$function-prefix}align-bottom      { vertical-align: bottom !important; }
+#{$function-prefix}align-text-bottom { vertical-align: text-bottom !important; }
+#{$function-prefix}align-text-top    { vertical-align: text-top !important; }
+
+#{$function-prefix}text-justify  { text-align: justify !important; }
+#{$function-prefix}text-nowrap   { white-space: nowrap !important; }
+#{$function-prefix}text-truncate { @include text-truncate; }
+#{$function-prefix}text-left   { text-align: left; }
+#{$function-prefix}text-right  { text-align: right; }
+#{$function-prefix}text-middle { text-align: middle; }
 
 // Contextual colors
-.f-text-white {
+#{$function-prefix}text-white {
   color: #fff !important;
 }
 
 // Transformation
-.f-text-lower  { text-transform: lowercase !important; }
-.f-text-upper  { text-transform: uppercase !important; }
-.f-text-cap    { text-transform: capitalize !important; }
+#{$function-prefix}text-lower  { text-transform: lowercase !important; }
+#{$function-prefix}text-upper  { text-transform: uppercase !important; }
+#{$function-prefix}text-cap    { text-transform: capitalize !important; }
 
 // Weight and italics
-.f-font-normal { font-weight: $font-weight-normal; }
-.f-font-bold   { font-weight: $font-weight-bold; }
-.f-font-italic { font-style: italic; }
+#{$function-prefix}font-normal { font-weight: $font-weight-normal; }
+#{$function-prefix}font-bold   { font-weight: $font-weight-bold; }
+#{$function-prefix}font-italic { font-style: italic; }
 
 // Misc
-.f-text-hide {
+#{$function-prefix}text-hide {
   @include text-hide();
 }
 
 // Visibility utilities
-.f-invisible {
+#{$function-prefix}invisible {
   @include invisible();
 }
 
-.f-hidden-print {
+#{$function-prefix}hidden-print {
   @media print {
     display: none !important;
   }
 }
 
-.f-float-left {
+#{$function-prefix}float-left {
   @include float-left();
 }
 
-.f-float-right {
+#{$function-prefix}float-right {
   @include float-right();
 }
 
-.f-float-none {
+#{$function-prefix}float-none {
   @include float-none();
 }
 
-.f-overflow-hidden {
+#{$function-prefix}overflow-hidden {
   overflow: hidden !important;
 }
 
-.f-overflow-scroll {
+#{$function-prefix}overflow-scroll {
   overflow: scroll !important;
 }
 
-.f-inline {
+#{$function-prefix}inline {
   display: inline;
 }
 
-.f-inline-block {
+#{$function-prefix}inline-block {
   display: inline-block;
 }
 
-.f-block {
+#{$function-prefix}block {
   display: block;
 }
 
-.f-relative {
+#{$function-prefix}relative {
   position: relative;
 }
 
-.f-absolute {
+#{$function-prefix}absolute {
   position: absolute;
 }
 
-.f-fixed {
+#{$function-prefix}fixed {
   position: fixed;
 }
 
-.f-zoom {
+#{$function-prefix}zoom {
   @include zoom();
 }
 
-.f-underline {
+#{$function-prefix}underline {
   text-decoration: underline;
 }
 
-.f-decoration-none {
+#{$function-prefix}decoration-none {
   text-decoration: none;
 }
 
-.f-decoration-overline {
+#{$function-prefix}decoration-overline {
   text-decoration: overline;
 }
 
-.f-cursor {
+#{$function-prefix}cursor {
   cursor: default;
 }
 
-.f-cursor-pointer {
+#{$function-prefix}cursor-pointer {
   cursor: pointer;
 }
 
-.f-user-select-none {
+#{$function-prefix}user-select-none {
   @include user-select(none);
 }
 
@@ -176,18 +203,19 @@
 * ============================================================
 */
 
-.z-selected {}
-.z-current {}
-.z-show {
+#{$status-prefix}selected {}
+#{$status-prefix}current {}
+#{$status-prefix}active {}
+#{$status-prefix}show {
   display: block !important;
 }
-.z-hidden {
+#{$status-prefix}hidden {
   display: none !important;
 }
-.z-error {}
-.z-disabled {}
-.z-open {}
-.z-close {}
+#{$status-prefix}error {}
+#{$status-prefix}disabled {}
+#{$status-prefix}open {}
+#{$status-prefix}close {}
 
 
 /**
@@ -196,6 +224,6 @@
 * start with: .s-*
 * ============================================================
 */
-.s-font-red {color: red;}
-.s-bg-red {background: red;}
-.s-border-red {border-color: red;}
+#{$skin-prefix}font-red {color: red;}
+#{$skin-prefix}bg-red {background: red;}
+#{$skin-prefix}border-red {border-color: red;}

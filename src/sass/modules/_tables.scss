@@ -1,0 +1,139 @@
+//
+// Basic Bootstrap table
+//
+#{$module-prefix}table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: $spacer;
+
+  th,
+  td {
+    padding: $table-cell-padding;
+    vertical-align: top;
+    border-top: $table-border-width solid $table-border-color;
+  }
+
+  thead th {
+    vertical-align: bottom;
+    border-bottom: (2 * $table-border-width) solid $table-border-color;
+  }
+
+  tbody + tbody {
+    border-top: (2 * $table-border-width) solid $table-border-color;
+  }
+
+  #{$module-prefix}table {
+    background-color: $body-bg;
+  }
+}
+
+
+//
+// Condensed table w/ half padding
+//
+#{$module-prefix}table-sm {
+  th,
+  td {
+    padding: $table-sm-cell-padding;
+  }
+}
+
+
+// Bordered version
+//
+// Add borders all around the table and between all the columns.
+#{$module-prefix}table-bordered {
+  border: $table-border-width solid $table-border-color;
+  th,
+  td {
+    border: $table-border-width solid $table-border-color;
+  }
+
+  thead {
+    th,
+    td {
+      border-bottom-width: (2 * $table-border-width);
+    }
+  }
+}
+
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+#{$module-prefix}table-striped {
+  tbody tr:nth-of-type(odd) {
+    background-color: $table-bg-accent;
+  }
+}
+
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+#{$module-prefix}table-hover {
+  tbody tr {
+    @include hover {
+      background-color: $table-bg-hover;
+    }
+  }
+}
+
+
+
+// Inverse styles
+//
+// Same table markup, but inverted color scheme: dark background and light text.
+
+#{$module-prefix}thead-inverse {
+  th {
+    color: #fff;
+    background-color: $table-bg-inverse;
+  }
+}
+
+
+#{$module-prefix}thead-default {
+  th {
+    color: $table-head-color;
+    background-color: $table-head-bg;
+  }
+}
+
+#{$module-prefix}table-inverse {
+  color: $body-bg;
+  background-color: $table-bg-inverse;
+
+  th,
+  td,
+  thead th {
+    border-color: $body-bg;
+  }
+
+  &.table-bordered {
+    border: 0;
+  }
+}
+
+
+
+// Responsive tables
+//
+// Add `.table-responsive` to `.table`s and we'll make them mobile friendly by
+// enabling horizontal scrolling. Only applies <768px. Everything above that
+// will display normally.
+
+#{$module-prefix}table-responsive {
+  display: block;
+  width: 100%;
+  min-height: 0%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+  overflow-x: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar; // See https://github.com/twbs/bootstrap/pull/10057
+
+  // Prevent double border on horizontal scroll due to use of `display: block;`
+  &#{$module-prefix}table-bordered {
+    border: 0;
+  }
+}
