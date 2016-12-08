@@ -1,6 +1,9 @@
 @charset "utf-8";
 
 /* Function Switch */
+// 关闭px2rem，rem2px转换功能，直接使用传入原始值参数，主要用于兼容不支持rem的浏览器情况
+$disable-unit-convert:      false !default;
+
 // 使用flex布局
 $enable-flex:               false !default;
 

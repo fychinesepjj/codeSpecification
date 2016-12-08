@@ -2,9 +2,11 @@
 
 // Convert px to rem unit
 @function px2rem($px, $base: $font-size-root) {
+  @if $disable-unit-convert {
+    @return $px;
+  }
   @return $px / $base * 1rem;
 }
-
 
 // Pixel value used to responsively scale all typography. Applied to the `<html>` element.
 // 100px作为浏览器相对值
@@ -109,7 +111,9 @@ $input-padding-y-sm:             px2rem(4px) !default;
 $input-padding-x-lg:             px2rem(24px) !default;
 $input-padding-y-lg:             px2rem(12px) !default;
 
-
 // Tables
 $table-cell-padding:            px2rem(12px) !default;
 $table-sm-cell-padding:         px2rem(4.8px) !default;
+
+
+//$grid-gutter-width-base:     px2rem(30px) !default;

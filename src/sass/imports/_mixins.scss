@@ -47,9 +47,13 @@
   $remValues: '';
 
   @for $i from 1 through $max {
-    $value: strip-units(nth($values, $i)); //返回$values列表中的第$i个值，并将单位值去掉
-    $browser-default-font-size: strip-units($font-size-root);
-    $pxValues: #{$pxValues + $value * $browser-default-font-size}px;
+    @if $disable-unit-convert {
+      $pxValues: nth($values, $i);
+    } @else {
+      $value: strip-units(nth($values, $i)); //返回$values列表中的第$i个值，并将单位值去掉
+      $browser-default-font-size: strip-units($font-size-root);
+      $pxValues: #{$pxValues + $value * $browser-default-font-size}px;
+    }
 
     @if $i < $max {
       $pxValues: #{$pxValues + " "};
@@ -65,10 +69,13 @@
   $remValues: '';
 
   @for $i from 1 through $max {
-    $value: strip-units(nth($values, $i));
-    $browser-default-font-size: strip-units($font-size-root);
-    $remValues: #{$remValues + $value / $browser-default-font-size}rem;
-
+    @if $disable-unit-convert {
+      $remValues: nth($values, $i);
+    } @else {
+      $value: strip-units(nth($values, $i));
+      $browser-default-font-size: strip-units($font-size-root);
+      $remValues: #{$remValues + $value / $browser-default-font-size}rem;
+    }
     @if $i < $max {
       $remValues: #{$remValues + " "};
     }
