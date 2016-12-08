@@ -46,3 +46,50 @@ a {
     color: blue;
   }
 }
+
+$font-size-root: 16px !default;
+@function strip-units($number){
+    @return $number / ($number * 0 + 1);
+}
+
+
+@mixin rem2px($property, $values...) {
+  $max: length($values);//返回$values列表的长度值
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-units(nth($values, $i)); //返回$values列表中的第$i个值，并将单位值去掉
+    $browser-default-font-size: strip-units($font-size-root);
+    $pxValues: #{$pxValues + $value * $browser-default-font-size}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  } 
+
+  #{$property}: $pxValues;
+}
+
+@mixin px2rem($property, $values...) {
+  $max: length($values);//返回$values列表的长度值
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-units(nth($values, $i));
+    $browser-default-font-size: strip-units($font-size-root);
+    $remValues: #{$remValues + $value / $browser-default-font-size}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  } 
+
+  #{$property}: $remValues;
+}
+
+.t {
+  @include rem2px(width, 1rem);
+  @include px2rem(height, 22px);
+  @include px2rem(margin-top, -20px);
+}

@@ -105,7 +105,7 @@ body {
 // margin for easier control within type scales as it avoids margin collapsing.
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
-  margin-bottom: .5rem;
+  @include px2rem(margin-bottom, 8px);
 }
 
 // Reset margins on paragraphs
@@ -114,7 +114,7 @@ h1, h2, h3, h4, h5, h6 {
 // bottom margin to use `rem` units instead of `em`.
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
+  @include px2rem(margin-bottom, 16px);
 }
 
 // Abbreviations
@@ -125,7 +125,7 @@ abbr[data-original-title] {
 }
 
 address {
-  margin-bottom: 1rem;
+  @include px2rem(margin-bottom, 16px);
   font-style: normal;
   line-height: inherit;
 }
@@ -134,7 +134,7 @@ ol,
 ul,
 dl {
   margin-top: 0;
-  margin-bottom: 1rem;
+  @include px2rem(margin-bottom, 16px);
 }
 
 ol ol,
@@ -149,12 +149,12 @@ dt {
 }
 
 dd {
-  margin-bottom: .5rem;
+  @include px2rem(margin-bottom, 8px);
   margin-left: 0; // Undo browser default
 }
 
 blockquote {
-  margin: 0 0 1rem;
+  @include px2rem(margin, 0, 0, 16px);
 }
 
 
@@ -205,7 +205,7 @@ pre {
   // Remove browser default top margin
   margin-top: 0;
   // Reset browser default of `1em` to use `rem`s
-  margin-bottom: 1rem;
+  @include px2rem(margin-bottom, 16px);
   // Normalize v4 removed this property, causing `<pre>` content to break out of wrapping code snippets
   overflow: auto;
 }
@@ -218,7 +218,7 @@ pre {
 figure {
   // Normalize adds `margin` to `figure`s as browsers apply it inconsistently.
   // We reset that to create a better flow in-page.
-  margin: 0 0 1rem;
+  @include px2rem(margin, 0, 0, 16px);
 }
 
 
@@ -301,7 +301,7 @@ th {
 label {
   // Allow labels to use `margin` for spacing.
   display: inline-block;
-  margin-bottom: .5rem;
+  @include px2rem(margin-bottom, 8px);
 }
 
 // Work around a Firefox/IE bug where the transparent `button` background
@@ -369,8 +369,8 @@ legend {
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: .5rem;
-  font-size: 1.5rem;
+  @include px2rem(margin-bottom, 8px);
+  @include px2rem(font-size, 24px);
   line-height: inherit;
 }
 

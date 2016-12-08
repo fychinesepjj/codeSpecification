@@ -1,0 +1,115 @@
+@charset "utf-8";
+
+// Convert px to rem unit
+@function px2rem($px, $base: $font-size-root) {
+  @return $px / $base * 1rem;
+}
+
+
+// Pixel value used to responsively scale all typography. Applied to the `<html>` element.
+// 100px作为浏览器相对值
+$font-size-root: 100px !default;
+$font-size-base: px2rem(16px) !default;
+$font-size-lg:   px2rem(20px) !default;
+$font-size-sm:   px2rem(14px) !default;
+$font-size-xs:   px2rem(12px) !default;
+
+
+$spacer:   px2rem(16px) !default;
+$spacer-x: $spacer !default;
+$spacer-y: $spacer !default;
+$spacers: (
+  0: (
+    x: 0,
+    y: 0
+  ),
+  1: (
+    x: ($spacer-x * .25),
+    y: ($spacer-y * .25)
+  ),
+  2: (
+    x: ($spacer-x * .5),
+    y: ($spacer-y * .5)
+  ),
+  3: (
+    x: ($spacer-x * .75),
+    y: ($spacer-y * .75)
+  ),
+  4: (
+    x: $spacer-x,
+    y: $spacer-y
+  ),
+  5: (
+    x: ($spacer-x * 1.5),
+    y: ($spacer-y * 1.5)
+  ),
+  6: (
+    x: ($spacer-x * 3),
+    y: ($spacer-y * 3)
+  )
+) !default;
+
+$border-radius:          px2rem(4px) !default;
+$border-radius-lg:       px2rem(5px) !default;
+$border-radius-sm:       px2rem(3px) !default;
+
+
+
+$font-size-h1: px2rem(40px) !default;
+$font-size-h2: px2rem(32px) !default;
+$font-size-h3: px2rem(28px) !default;
+$font-size-h4: px2rem(24px) !default;
+$font-size-h5: px2rem(20px) !default;
+$font-size-h6: px2rem(16px) !default;
+
+$blockquote-border-width: px2rem(4px) !default;
+$list-inline-padding: px2rem(5px) !default;
+
+
+// Code
+$code-padding-x:              px2rem(6.4px) !default;
+$code-padding-y:              px2rem(3.2px) !default;
+
+
+// Buttons
+$btn-padding-x:                  px2rem(16px) !default;
+$btn-padding-y:                  px2rem(8px) !default;
+
+$btn-padding-x-sm:               px2rem(8px) !default;
+$btn-padding-y-sm:               px2rem(4px) !default;
+
+$btn-padding-x-lg:               px2rem(24px) !default;
+$btn-padding-y-lg:               px2rem(12px) !default;
+
+$btn-block-spacing-y:            px2rem(8px) !default;
+$btn-toolbar-margin:             px2rem(8px) !default;
+
+
+// Breadcrumbs
+$breadcrumb-padding-y:          px2rem(12px) !default;
+$breadcrumb-item-padding:       px2rem(8px)  !default;
+
+
+// Pagination
+$pagination-padding-x:                px2rem(12px) !default;
+$pagination-padding-y:                px2rem(8px) !default;
+$pagination-padding-x-sm:             px2rem(8px) !default;
+$pagination-padding-y-sm:             px2rem(4px) !default;
+$pagination-padding-x-lg:             px2rem(24px) !default;
+$pagination-padding-y-lg:             px2rem(12px) !default;
+
+
+// Form Elements
+$input-padding-x:                px2rem(12px) !default;
+$input-padding-y:                px2rem(8px) !default;
+
+$input-padding-x-sm:             px2rem(8px) !default;
+$input-padding-y-sm:             px2rem(4px) !default;
+
+$input-padding-x-lg:             px2rem(24px) !default;
+$input-padding-y-lg:             px2rem(12px) !default;
+
+
+// Tables
+$table-cell-padding:            px2rem(12px) !default;
+$table-sm-cell-padding:         px2rem(4.8px) !default;
