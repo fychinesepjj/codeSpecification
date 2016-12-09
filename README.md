@@ -194,7 +194,7 @@ DEMO由`Sass`编写而成，内容主要分为两部分：`imports`，`modules`�
 * `.m-`：主要用于复合型元素类型，`.m-pagination`，`.m-breadcrumb`
 * 对于扩展元素如`pagination-lg`，`btn-lg`需要统一加上前缀符:`.m-pagination-lg`，`.u-btn-lg`
 * 如果对`.m-`模块内元素进行重定义，一般可以采用两种形式：
-   1. `<table class="m-table m-table-inverse"><thead></thead></table>` 外层包裹`m-table-inverse`进行重定义，此时需要有`.m-`前缀，主要用于同时对多个元素重定义。
+   1. `<table class="m-table m-table-inverse"><thead></thead></table>` 外层包裹`m-table-inverse`进行重定义，此时需要有`.m-`前缀，主要用于同时对多个元素定义。
        
         ```sass
         .m-table-inverse {
@@ -234,8 +234,13 @@ DEMO由`Sass`编写而成，内容主要分为两部分：`imports`，`modules`�
   * media
     * css // sass编译后文件存放目录
 ```
-### 参考
+## 关于Sass
+* `_`下划线开头Sass文件，不会被编译成css文件。
+* `npm run watch:sass`，`test:sass`分别可以对src目录，test目录中sass文件进行编译，更多命令参考`package.json`文件
+* `_variables.scss`中`$disable-unit-convert`变量，主要用于控制`px2rem`函数，mixins的转换工作，默认值为`false`，主要用于兼容不支持`rem`的浏览器，此时单位被转换成`px`形式表示。
+
+## 参考
 * [Nec参考规范](http://nec.netease.com/standard/css-practice.html)
 * [CSS规范实战](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06#.2slca4lo4)
-* [Sass参考手册](http://sass.bootcss.com/docs/sass-reference/)
+* [Sass语法参考手册](http://sass.bootcss.com/docs/sass-reference/)
 * [OOCSS, SMACSS, BEM基本说明](https://segmentfault.com/a/1190000000704006)
