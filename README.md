@@ -116,7 +116,8 @@ DEMO由`Sass`编写而成，内容主要分为两部分：`imports`，`modules`�
 ```
 * 前缀后，*单个单词*命名可以是简写，也可以是完整单词，如果单词有缩写形式建议使用缩写，如`.u-button`缩写成`.u-btn`，`.m-navigation`缩写成`.m-nav`。
 * 前缀后，*多个单词*拼写情况，除了常用定义使用缩写:
-    ```text
+
+    ```css
     lg === large
     sm === small
     md === medium
@@ -137,6 +138,7 @@ DEMO由`Sass`编写而成，内容主要分为两部分：`imports`，`modules`�
     pb === padding-bottom
     ```
      其他都统一使用连字符`-`串联，如
+
     ```css
     .f-float-none
     .f-rounded-top
