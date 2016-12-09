@@ -196,7 +196,7 @@ DEMO由`Sass`编写而成，内容主要分为两部分：`imports`，`modules`�
 * 如果对`.m-`模块内元素进行重定义，一般可以采用两种形式：
    1. `<table class="m-table m-table-inverse"><thead></thead></table>` 外层包裹`m-table-inverse`进行重定义，此时需要有`.m-`前缀，主要用于同时对多个元素重定义。
        
-        ```css
+        ```sass
         .m-table-inverse {
             color: $body-bg;
             background-color: $table-bg-inverse;
