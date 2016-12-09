@@ -123,11 +123,11 @@
   }
 }
 
-#{$function-prefix}float-left {
+#{$function-prefix}fl {
   @include float-left();
 }
 
-#{$function-prefix}float-right {
+#{$function-prefix}fr {
   @include float-right();
 }
 
