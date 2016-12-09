@@ -208,6 +208,8 @@ DEMO由`Sass`编写而成，内容主要分为两部分：`imports`，`modules`�
 
 ## DEMO结构
 ```
+* demo  // boostrap v4删减整合版
+* test  // sass编译，语法调试
 * src
   * sass
     * imports

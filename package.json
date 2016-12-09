@@ -4,10 +4,10 @@
   "description": "code specification study",
   "main": "",
   "scripts": {
-    "test:es6": "babel test/jsx -d test/build/js",
     "watch:demo": "sass --check --trace --sourcemap=none -t expanded -I demo/sass --watch demo/sass:demo/media/css",
     "watch:sass": "sass --check --trace --sourcemap=none -t expanded -I src/sass --watch src/sass:src/media/css",
-    "test:sass": "sass --check --trace --sourcemap=none -t expanded -I test/sass/import --update test/sass:test/build/css"
+    "test:sass": "sass --check --trace --sourcemap=none -t expanded -I test/sass/import --update test/sass:test/build/css",
+    "test:es6": "babel test/jsx -d test/build/js"
   },
   "keywords": [
     "css specification",
