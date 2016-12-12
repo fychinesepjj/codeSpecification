@@ -115,8 +115,8 @@ DEMO由`Sass`编写而成，内容主要分为两部分：`imports`，`modules`�
 .s-bg-red {}
 .js-send {}
 ```
-* 前缀后，*单个单词*命名可以是简写，也可以是完整单词，如果单词有缩写形式建议使用缩写，如`.u-button`缩写成`.u-btn`，`.m-navigation`缩写成`.m-nav`。
-* 前缀后，*多个单词*拼写情况，除了常用定义使用缩写:
+* 前缀后，*单-单词*拼写可以是缩写，也可以是完整单词，如果单词有缩写形式建议使用缩写，如`.u-button`缩写成`.u-btn`，`.m-navigation`缩写成`.m-nav`。
+* 前缀后，*多-单词*拼写情况，除了常用定义使用缩写:
 
     ```css
     lg === large
@@ -238,7 +238,7 @@ DEMO由`Sass`编写而成，内容主要分为两部分：`imports`，`modules`�
 ## 关于Sass
 * `_`下划线开头Sass文件，不会被编译成css文件。
 * `npm run watch:sass`，`test:sass`分别可以对src目录，test目录中sass文件进行编译，更多命令参考`package.json`文件
-* `_variables.scss`中`$disable-unit-convert`变量，主要用于控制`px2rem`函数，mixins的转换工作，默认值为`false`，主要用于兼容不支持`rem`的浏览器，此时单位被转换成`px`形式表示。
+* `_variables.scss`中`$disable-unit-convert`变量，主要用于控制`px2rem`函数，mixins的转换工作，默认值为`false`，主要用于兼容不支持`rem`的浏览器，此时组件中的单位均为`px`形式表示。
 
 ## 参考
 * [Nec参考规范](http://nec.netease.com/standard/css-practice.html)
