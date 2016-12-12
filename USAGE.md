@@ -1,7 +1,8 @@
 # CSS规范 - 示例用法
 具体示例可运行`src/index.html`查看
 ## 工具类
-* 功能
+**功能**
+
 ```css
 .f-mx-auto        /* margin X方向 auto */
 .f-m-0
@@ -83,7 +84,8 @@
 .f-user-select-none
 ```
 
-* 状态
+**状态**
+
 ```css
 .z-selected
 .z-current
@@ -97,7 +99,8 @@
 .z-close
 ```
 
-* 皮肤样式
+**皮肤样式**
+
 ```css
 .s-font-red
 .s-bg-red
