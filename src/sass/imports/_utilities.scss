@@ -50,32 +50,55 @@
   margin-left:  auto !important;
 }
 
-@each $breakpoint in map-keys($grid-breakpoints) {
-  @each $prop, $abbrev in (margin: m, padding: p) {
-    @each $size, $lengths in $spacers {
-      $length-x:   map-get($lengths, x);
-      $length-y:   map-get($lengths, y);
 
-      @include media-breakpoint-up($breakpoint) {
-        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+@each $prop, $abbrev in (margin: m, padding: p) {
+  @each $size, $lengths in $spacers {
+    $length-x:   map-get($lengths, x);
+    $length-y:   map-get($lengths, y);
 
-        #{$function-prefix}#{$abbrev}#{$infix}-#{$size}  { #{$prop}:        $length-y $length-x !important; }
-        #{$function-prefix}#{$abbrev}t#{$infix}-#{$size} { #{$prop}-top:    $length-y !important; }
-        #{$function-prefix}#{$abbrev}r#{$infix}-#{$size} { #{$prop}-right:  $length-x !important; }
-        #{$function-prefix}#{$abbrev}b#{$infix}-#{$size} { #{$prop}-bottom: $length-y !important; }
-        #{$function-prefix}#{$abbrev}l#{$infix}-#{$size} { #{$prop}-left:   $length-x !important; }
-        #{$function-prefix}#{$abbrev}x#{$infix}-#{$size} {
-          #{$prop}-right:  $length-x !important;
-          #{$prop}-left:   $length-x !important;
-        }
-        #{$function-prefix}#{$abbrev}y#{$infix}-#{$size} {
-          #{$prop}-top:    $length-y !important;
-          #{$prop}-bottom: $length-y !important;
-        }
-      }
+    #{$function-prefix}#{$abbrev}-#{$size}  { #{$prop}:        $length-y $length-x !important; }
+    #{$function-prefix}#{$abbrev}t-#{$size} { #{$prop}-top:    $length-y !important; }
+    #{$function-prefix}#{$abbrev}r-#{$size} { #{$prop}-right:  $length-x !important; }
+    #{$function-prefix}#{$abbrev}b-#{$size} { #{$prop}-bottom: $length-y !important; }
+    #{$function-prefix}#{$abbrev}l-#{$size} { #{$prop}-left:   $length-x !important; }
+    #{$function-prefix}#{$abbrev}x-#{$size} {
+      #{$prop}-right:  $length-x !important;
+      #{$prop}-left:   $length-x !important;
+    }
+    #{$function-prefix}#{$abbrev}y-#{$size} {
+      #{$prop}-top:    $length-y !important;
+      #{$prop}-bottom: $length-y !important;
     }
   }
 }
+
+
+// @each $breakpoint in map-keys($grid-breakpoints) {
+//   @each $prop, $abbrev in (margin: m, padding: p) {
+//     @each $size, $lengths in $spacers {
+//       $length-x:   map-get($lengths, x);
+//       $length-y:   map-get($lengths, y);
+
+//       @include media-breakpoint-up($breakpoint) {
+//         $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+//         #{$function-prefix}#{$abbrev}#{$infix}-#{$size}  { #{$prop}:        $length-y $length-x !important; }
+//         #{$function-prefix}#{$abbrev}t#{$infix}-#{$size} { #{$prop}-top:    $length-y !important; }
+//         #{$function-prefix}#{$abbrev}r#{$infix}-#{$size} { #{$prop}-right:  $length-x !important; }
+//         #{$function-prefix}#{$abbrev}b#{$infix}-#{$size} { #{$prop}-bottom: $length-y !important; }
+//         #{$function-prefix}#{$abbrev}l#{$infix}-#{$size} { #{$prop}-left:   $length-x !important; }
+//         #{$function-prefix}#{$abbrev}x#{$infix}-#{$size} {
+//           #{$prop}-right:  $length-x !important;
+//           #{$prop}-left:   $length-x !important;
+//         }
+//         #{$function-prefix}#{$abbrev}y#{$infix}-#{$size} {
+//           #{$prop}-top:    $length-y !important;
+//           #{$prop}-bottom: $length-y !important;
+//         }
+//       }
+//     }
+//   }
+// }
 
 // Alignment
 #{$function-prefix}align-baseline    { vertical-align: baseline !important; } // Browser default
