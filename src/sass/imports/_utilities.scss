@@ -135,22 +135,17 @@
   @include text-hide();
 }
 
-// Visibility utilities
-#{$function-prefix}invisible {
-  @include invisible();
-}
-
 #{$function-prefix}hidden-print {
   @media print {
     display: none !important;
   }
 }
 
-#{$function-prefix}float-left {
+#{$function-prefix}fl {
   @include float-left();
 }
 
-#{$function-prefix}float-right {
+#{$function-prefix}fr {
   @include float-right();
 }
 
@@ -239,6 +234,10 @@
 #{$status-prefix}disabled {}
 #{$status-prefix}open {}
 #{$status-prefix}close {}
+// Visibility utilities
+#{$status-prefix}invisible {
+  @include invisible();
+}
 
 
 /**

@@ -395,22 +395,23 @@
           @include make-col($i, $columns);
         }
       }
+    }
+  }
 
-      @each $modifier in (pull, push) {
-        @for $i from 0 through $columns {
-          #{$prefix}#{$modifier}#{$infix}-#{$i} {
-            @include make-col-modifier($modifier, $i, $columns)
-          }
-        }
+
+  @each $modifier in (pull, push) {
+    @for $i from 0 through $columns {
+      #{$prefix}#{$modifier}-#{$i} {
+        @include make-col-modifier($modifier, $i, $columns)
       }
+    }
+  }
 
-      // `$columns - 1` because offsetting by the width of an entire row isn't possible
-      @for $i from 0 through ($columns - 1) {
-        @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-xs-0
-          #{$prefix}offset#{$infix}-#{$i} {
-            @include make-col-modifier(offset, $i, $columns)
-          }
-        }
+  // `$columns - 1` because offsetting by the width of an entire row isn't possible
+  @for $i from 0 through ($columns - 1) {
+    @if not ($i == 0) { // Avoid emitting useless .offset-xs-0
+      #{$prefix}offset-#{$i} {
+        @include make-col-modifier(offset, $i, $columns)
       }
     }
   }
