@@ -211,6 +211,7 @@ DEMO由`Sass`编写而成，内容主要分为两部分：`imports`，`modules`�
     2. `<table class="m-table"><thead class="table-head-inverse"></thead></table>`，`table-head-inverse`不需要`.m-`前缀符，主要用于单个元素重定义。
 
 ## DEMO结构
+[点击查看：CSS规范示例说明](./USAGE.md)
 ```
 * demo  // boostrap v4删减整合版
 * test  // sass编译，语法调试
@@ -235,7 +236,10 @@ DEMO由`Sass`编写而成，内容主要分为两部分：`imports`，`modules`�
   * media
     * css // sass编译后文件存放目录
 ```
+
+
 ## 关于Sass
+* 运行Sass需先安装`Ruby`，安装完毕后运行`gem install sass`命令进行安装。（国内更换源速度更快：`gem sources --add http://gems.ruby-china.org --remove https://rubygems.org/`）
 * `_`下划线开头Sass文件，不会被编译成css文件。
 * `npm run watch:sass`，`test:sass`分别可以对src目录，test目录中sass文件进行编译，更多命令参考`package.json`文件
 * `_variables.scss`中`$disable-unit-convert`变量，主要用于控制`px2rem`函数，mixins的转换工作，默认值为`false`，当设置为`true`时，可以让不支持`rem`的浏览器正常工作，此时组件单位均为`px`形式表示。
@@ -245,3 +249,4 @@ DEMO由`Sass`编写而成，内容主要分为两部分：`imports`，`modules`�
 * [CSS规范实战](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06#.2slca4lo4)
 * [Sass语法参考手册](http://sass.bootcss.com/docs/sass-reference/)
 * [OOCSS, SMACSS, BEM基本说明](https://segmentfault.com/a/1190000000704006)
+* [Ruby官网下载](http://www.ruby-lang.org/en/downloads/)
